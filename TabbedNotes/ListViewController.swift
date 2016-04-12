@@ -19,6 +19,7 @@ class ListViewController: UITableViewController, SaveItemDelegate, NSFetchedResu
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.leftBarButtonItem = self.editButtonItem()
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: cellId)
     }
     
@@ -77,6 +78,21 @@ class ListViewController: UITableViewController, SaveItemDelegate, NSFetchedResu
         let cell = tableView.dequeueReusableCellWithIdentifier(cellId)
         cell!.textLabel!.text = items[indexPath.row].description;
         return cell!
+    }
+    
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            let appDel:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            let context:NSManagedObjectContext = appDel.managedObjectContext
+            context.deleteObject(items[indexPath.row] as NSManagedObject)
+            items.removeAtIndex(indexPath.row)
+            do {
+                try context.save()
+            } catch {
+                fatalError("Failed to delete: \(error)")
+            }
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        }
     }
     
     func getSortDescriptors()->[NSSortDescriptor] {
