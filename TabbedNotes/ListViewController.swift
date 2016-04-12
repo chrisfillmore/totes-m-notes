@@ -65,7 +65,7 @@ class ListViewController: UITableViewController, SaveItemDelegate, NSFetchedResu
     }
     
     @IBAction func addButton(sender: AnyObject) {
-        let alert = AlertHelper.createSaveAlert(self, title: getAlertTitle(), fieldNames: getAlertFieldNames())
+        let alert = AlertHelper.createSaveAlert(self, title: getAlertTitle(), fieldNames: getAlertFieldNames(), extraActions: getExtraActions())
         presentViewController(alert, animated: true, completion: nil)
     }
     
@@ -89,6 +89,10 @@ class ListViewController: UITableViewController, SaveItemDelegate, NSFetchedResu
     
     func getAlertFieldNames() -> [String:String] {
         return [:]
+    }
+    
+    func getExtraActions() -> [String:(UIAlertAction) -> Void]? {
+        return nil
     }
     
     func onSave(fields:[String:String]) {

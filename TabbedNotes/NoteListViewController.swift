@@ -42,6 +42,12 @@ class NoteListViewController: ListViewController {
         return alertFieldNames
     }
     
+    override func getExtraActions() -> [String:(UIAlertAction) -> Void]? {
+        return [
+            "Open Details" : { (action: UIAlertAction) in }
+            ]
+    }
+    
     override func getEntityName() -> String {
         return "Note"
     }
