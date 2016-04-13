@@ -46,8 +46,6 @@ class NoteDetailViewController: UIViewController {
         
         for e in note!.tags!
         {
-            print("e value = ", e.description)
-            print("tagCell value = ", tags[indexPath.row].description)
             if e.description == tags[indexPath.row].description
             {
                 hasTag = true

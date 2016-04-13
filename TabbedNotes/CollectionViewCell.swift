@@ -36,9 +36,7 @@ class CollectionViewCell: UICollectionViewCell {
         } catch let error as NSError {
             print("Could not save \(error), \(error.userInfo)")
         }
-        
-        print("Tags count = ", note.tags?.count)
-        
+                
     }
     
 
