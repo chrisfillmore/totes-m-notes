@@ -13,6 +13,13 @@ import CoreData
 class DTFNote: NSManagedObject {
 
     override var description:String {
+        if self.title == nil {
+            self.title = ""
+        }
+        if self.body == nil {
+            self.body = ""
+        }
+        
         return self.title! + " : " + self.body!
     }
 }

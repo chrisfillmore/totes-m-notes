@@ -27,8 +27,14 @@ class NoteDetailViewController: UIViewController {
     }
     
     override func viewDidLoad() {
-        noteTitleField.text = note!.title
-        noteBodyField.text = note!.body
+        if note!.title != nil {
+            noteTitleField.text = note!.title
+            noteBodyField.text = note!.body
+        } else {
+            noteTitleField.text = ""
+            noteBodyField.text = ""
+        }
+        self.automaticallyAdjustsScrollViewInsets = false
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -43,6 +49,11 @@ class NoteDetailViewController: UIViewController {
         tagCell.cellTag = tags[indexPath.row]
         tagCell.note = note
         tagCell.managedObjectContext = managedObjectContext
+        tagCell.layer.cornerRadius = 5
+        tagCell.tagCellBtn.titleEdgeInsets.left = 4
+        tagCell.tagCellBtn.titleEdgeInsets.right = 4
+        tagCell.tagCellBtn.titleEdgeInsets.top = 4
+        tagCell.tagCellBtn.titleEdgeInsets.bottom = 4
         
         for e in note!.tags!
         {
@@ -68,6 +79,10 @@ class NoteDetailViewController: UIViewController {
     }
     
     @IBAction func save(sender: UIBarButtonItem) {
+       // if note == nil {
+       //  let note = NSEntityDescription.insertNewObjectForEntityForName("Note", inManagedObjectContext: <#T##NSManagedObjectContext#>)
+       // }
+        
         note!.title = noteTitleField.text! as String
         note!.body = noteBodyField.text as String
         saveDelegate!.onSave(nil)
