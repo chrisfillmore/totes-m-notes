@@ -15,14 +15,13 @@ class ListViewController: UITableViewController, SaveItemDelegate, NSFetchedResu
     let cacheName = "secretCache"
     
     var fetchedResultsController: NSFetchedResultsController!
-    
+    var managedObjectContext:NSManagedObjectContext!
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        managedObjectContext = getManagedObjectContext()
         fetchedResultsController = getFetchedResultsController()
     }
-    
-    //var items = [NSManagedObject]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,25 +29,7 @@ class ListViewController: UITableViewController, SaveItemDelegate, NSFetchedResu
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
     }
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        
-        /*
-        let managedContext = getManagedObjectContext()
-        let fetchRequest = NSFetchRequest(entityName: getEntityName())
-        
-        do {
-            let results = try managedContext.executeFetchRequest(fetchRequest)
-            items = results as! [NSManagedObject]
-        } catch let error as NSError {
-            print("Could not fetch \(error), \(error.userInfo)")
-        }*/
-    }
-    
     func getFetchedResultsController()->NSFetchedResultsController {
-        
-        
         let request = NSFetchRequest(entityName: getEntityName())
         request.sortDescriptors = getSortDescriptors()
         
@@ -77,8 +58,6 @@ class ListViewController: UITableViewController, SaveItemDelegate, NSFetchedResu
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return fetchedResultsController.sections!.count
-        //let sections = fetchedResultsController.sections
-        //return sections == nil ? 0 : sections!.count
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -87,24 +66,28 @@ class ListViewController: UITableViewController, SaveItemDelegate, NSFetchedResu
         print("Number of objects in section: " + String(sectionInfo.numberOfObjects))
         return sectionInfo.numberOfObjects
     }
-    /*
-    override func tableView(TableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count;
-    }
-    */
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(cellId)
         configureCell(cell!, indexPath: indexPath)
         return cell!
     }
     
-    /*
+    func saveChanges() {
+        do {
+            try managedObjectContext.save()
+        } catch let error as NSError {
+            print("Could not save \(error), \(error.userInfo)")
+        }
+    }
+    
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-            items.removeAtIndex(indexPath.row)
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            let item = fetchedResultsController.objectAtIndexPath(indexPath) as! NSManagedObject
+            managedObjectContext.deleteObject(item)
+            saveChanges()
         }
-    }*/
+    }
     
     func configureCell(cell: UITableViewCell, indexPath: NSIndexPath) {
         cell.textLabel!.text = getEntity(indexPath).description;
@@ -151,31 +134,15 @@ class ListViewController: UITableViewController, SaveItemDelegate, NSFetchedResu
                     item.setValue(value, forKey: key)
                 }
             }
-            
-            do {
-                try managedContext.save()
-            } catch let error as NSError {
-                print("Could not save \(error), \(error.userInfo)")
-            }
-            
         } else {
-            
             let item = NSEntityDescription.insertNewObjectForEntityForName(getEntityName(), inManagedObjectContext: managedContext)
-            //let entity = NSEntityDescription.entityForName(getEntityName(), inManagedObjectContext: managedContext)
-            //let item = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedContext)
             if data != nil {
                 for (key, value) in data! {
                     item.setValue(value, forKey: key)
                 }
             }
-            
-            do {
-                try managedContext.save()
-                //items.append(item)
-            } catch let error as NSError {
-                print("Could not save \(error), \(error.userInfo)")
-            }
         }
+        saveChanges()
     }
     
     func controllerWillChangeContent(controller: NSFetchedResultsController) {
@@ -195,7 +162,6 @@ class ListViewController: UITableViewController, SaveItemDelegate, NSFetchedResu
         }
     }
     
-    
     func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
         switch type {
         case .Insert:
@@ -212,43 +178,6 @@ class ListViewController: UITableViewController, SaveItemDelegate, NSFetchedResu
     
     func controllerDidChangeContent(controller: NSFetchedResultsController) {
         tableView.endUpdates()
-        //tableView.reloadData()
     }
     
-    /*
-    func saveItem(data:[String:String], index:NSIndexPath) {
-        if let selectedIndexPath = tableView.indexPathForSelectedRow {
-            var item = items[index.row]
-            for (key, value) in data {
-                item.setValue(value, forKey: key)
- 
-                do {
-                    //try item.setValue(value, forKey: key)
-                    try item[key] = value
-                } catch let error as NSError {
-                    print("Could not update \(error), \(error.userInfo)")
-                }
-            }
-        }
-    }
-    
-    func editItem(row:NSIndexPath, data: [String:String]) {
-        //let managedContext = getManagedObjectContext()
-        //let fetchRequest = NSFetchRequest(entityName: getEntityName())
-        //fetchRequest.predicate = NSPredicate(format: , <#T##args: CVarArgType...##CVarArgType#>)
-        
-        if let selectedIndexPath = tableView.indexPathForSelectedRow {
-            //
-        }
-    }*/
-    /*
-    func getItem(selectedCell:UITableViewCell?)->NSManagedObject {
-        let indexPath = tableView.indexPathForCell(selectedCell!)
-        return getItem(indexPath!)
-    }
- 
-    func getItem(index:NSIndexPath)->NSManagedObject {
-        return items[index.row]
-    }
-    */
 }

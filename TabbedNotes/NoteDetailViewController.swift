@@ -16,7 +16,6 @@ class NoteDetailViewController: UIViewController {
     
     var note:DTFNote?
     var saveDelegate:SaveItemDelegate?
-    //var noteId:NSIndexPath?
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -32,13 +31,6 @@ class NoteDetailViewController: UIViewController {
     }
     
     @IBAction func save(sender: UIBarButtonItem) {
-        /*let fields = [
-            "title" : noteTitleField.text! as String,
-            "body" : noteBodyField.text as String
-        ]
-        saveDelegate!.onSave(fields)*/
-        //note!.setValue(noteTitleField.text!, forKey: "title")
-        //note!.setValue(noteBodyField.text!, forKey: "body")
         note!.title = noteTitleField.text! as String
         note!.body = noteBodyField.text as String
         saveDelegate!.onSave(nil)

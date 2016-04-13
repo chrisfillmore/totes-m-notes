@@ -18,9 +18,6 @@ class NoteListViewController: ListViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // cast to the right type
-        // this is a bit ghetto
-        //items = items as! [DTFNote]
     }
 
     override func onSave(fields:[String:String]?) {
@@ -65,12 +62,9 @@ class NoteListViewController: ListViewController {
         
         if segue.identifier == noteDetailSegueId {
             let noteDetailCtrl = destCtrl as! NoteDetailViewController
-            //let selectedNote = items[index.row] as! DTFNote
             let selectedNote = fetchedResultsController.objectAtIndexPath(index) as! DTFNote
             noteDetailCtrl.note = selectedNote
             noteDetailCtrl.saveDelegate = self
-            //noteDetailCtrl.context = self
-            //noteDetailCtrl.noteId = index
         } else {
             // do nothing for now
         }
