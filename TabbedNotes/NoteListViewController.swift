@@ -20,18 +20,11 @@ class NoteListViewController: ListViewController {
         super.viewDidLoad()
         // cast to the right type
         // this is a bit ghetto
-        items = items as! [DTFNote]
+        //items = items as! [DTFNote]
     }
 
-    override func onSave(fields:[String:String]) {
+    override func onSave(fields:[String:String]?) {
         saveItem(fields)
-        self.tableView.reloadData()
-    }
-    
-    override func onEdit(row:NSIndexPath, fields:[String:String]) {
-        for (key, value) in fields {
-            print(key + " = " + value)
-        }
     }
     
     override func getAlertTitle() -> String {
@@ -40,6 +33,16 @@ class NoteListViewController: ListViewController {
     
     override func getAlertFieldNames() -> [String : String] {
         return alertFieldNames
+    }
+    
+    override func getExtraActions() -> [String:(UIAlertAction) -> Void]? {
+        
+        return [
+            "Open Details" : { (action: UIAlertAction) in
+                
+                self.performSegueWithIdentifier(self.noteDetailSegueId, sender: nil)
+            }
+        ]
     }
     
     override func getEntityName() -> String {
@@ -57,13 +60,16 @@ class NoteListViewController: ListViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let navCtrl = segue.destinationViewController
         let destCtrl = navCtrl.childViewControllers.first
+        
         let index = sender as! NSIndexPath
         
         if segue.identifier == noteDetailSegueId {
             let noteDetailCtrl = destCtrl as! NoteDetailViewController
-            let selectedNote = items[index.row] as! DTFNote
+            //let selectedNote = items[index.row] as! DTFNote
+            let selectedNote = fetchedResultsController.objectAtIndexPath(index) as! DTFNote
             noteDetailCtrl.note = selectedNote
             noteDetailCtrl.saveDelegate = self
+            //noteDetailCtrl.context = self
             //noteDetailCtrl.noteId = index
         } else {
             // do nothing for now

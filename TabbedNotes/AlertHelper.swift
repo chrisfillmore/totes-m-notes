@@ -11,19 +11,22 @@ import UIKit
 class AlertHelper {
     
     
-    static func createSaveAlert(delegate:SaveItemDelegate, title:String, fieldNames:[String:String])->UIAlertController {
+    static func createSaveAlert(delegate:SaveItemDelegate, title:String, fieldNames:[String:String], extraActions:[String:(UIAlertAction) -> Void]?)->UIAlertController {
         
         let alert = UIAlertController(title: title, message:"", preferredStyle: .Alert)
         
-        let actions = createActions([
+        var actions = createActions([
             "Save" : { (action:UIAlertAction) in
                 let keys = getKeys(fieldNames)
                 let values:[String] = alert.textFields!.map(getTextFieldValue)
                 delegate.onSave(createDictionary(keys, values:values))
             },
-            "Cancel" : { (action: UIAlertAction) in },
-            "Details" : { (action: UIAlertAction) in }
+            "Cancel" : { (action: UIAlertAction) in }
         ])
+        
+        if (extraActions != nil) {
+            actions = actions + createActions(extraActions!)
+        }
         
         actions.forEach({ (action:UIAlertAction) in alert.addAction(action) })
         
