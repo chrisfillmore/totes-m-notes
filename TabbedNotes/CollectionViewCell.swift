@@ -7,13 +7,40 @@
 //
 
 import UIKit
+import CoreData
 
 class CollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var tagCellBtn: UIButton!
+    var note:DTFNote!
+    var cellTag:DTFTag!
+    var managedObjectContext:NSManagedObjectContext!
+    var hasTag:Bool = false
     
+    @IBOutlet weak var tagCellBtn: UIButton!
+
     @IBAction func touchMe(sender: AnyObject) {
+        
+        let noteLocation = note.mutableSetValueForKey("tags")
+        if hasTag {
+            noteLocation.removeObject(cellTag)
+            self.backgroundColor = UIColor.whiteColor()
+            self.hasTag = false
+        } else {
+            noteLocation.addObject(cellTag)
+            self.backgroundColor = UIColor.blueColor()
+            self.hasTag = true
+        }
+        
+        do {
+            try managedObjectContext.save()
+        } catch let error as NSError {
+            print("Could not save \(error), \(error.userInfo)")
+        }
+        
+        print("Tags count = ", note.tags?.count)
+        
     }
+    
 
     
 }

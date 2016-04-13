@@ -78,6 +78,7 @@ class NoteListViewController: ListViewController {
             noteDetailCtrl.note = selectedNote
             noteDetailCtrl.saveDelegate = self
             noteDetailCtrl.tags = getTags()
+            noteDetailCtrl.managedObjectContext = managedObjectContext
         } else {
             // do nothing for now
         }

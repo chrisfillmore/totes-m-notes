@@ -20,6 +20,7 @@ class NoteDetailViewController: UIViewController {
     var note:DTFNote?
     var saveDelegate:SaveItemDelegate?
     var tags = [DTFTag]()
+    var managedObjectContext:NSManagedObjectContext!
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -35,10 +36,32 @@ class NoteDetailViewController: UIViewController {
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        var hasTag:Bool = false
         let tagCell = collectionView.dequeueReusableCellWithReuseIdentifier(tagCellID, forIndexPath: indexPath) as! CollectionViewCell
         tagCell.tagCellBtn.setTitle(tags[indexPath.row].description,
             forState: UIControlState.Normal)
-        tagCell.backgroundColor = UIColor.whiteColor()
+        tagCell.cellTag = tags[indexPath.row]
+        tagCell.note = note
+        tagCell.managedObjectContext = managedObjectContext
+        
+        for e in note!.tags!
+        {
+            print("e value = ", e.description)
+            print("tagCell value = ", tags[indexPath.row].description)
+            if e.description == tags[indexPath.row].description
+            {
+                hasTag = true
+            }
+        }
+        
+        tagCell.hasTag = hasTag
+        
+        if hasTag {
+            tagCell.backgroundColor = UIColor.blueColor()
+        } else {
+            tagCell.backgroundColor = UIColor.whiteColor()
+        }
+        
         return tagCell
     }
     

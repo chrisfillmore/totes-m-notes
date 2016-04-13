@@ -171,7 +171,9 @@ class ListViewController: UITableViewController, SaveItemDelegate, NSFetchedResu
         case .Delete:
             tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
         case .Update:
+            if newIndexPath != nil{
             configureCell(self.tableView.cellForRowAtIndexPath(indexPath!)!, indexPath: indexPath!)
+            }
         case .Move:
             tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
             tableView.insertRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)

@@ -15,4 +15,5 @@ class DTFTag: NSManagedObject {
     override var description:String {
         return self.name!
     }
+    
 }

@@ -95,7 +95,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="71" height="50"/>
                                                     <state key="normal" title="Button"/>
                                                     <connections>
-                                                        <action selector="touchMe:" destination="EH7-A9-SK7" eventType="touchUpInside" id="pIK-cd-zUX"/>
+                                                        <action selector="touchMe:" destination="EH7-A9-SK7" eventType="touchUpInside" id="6az-oW-kjo"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
