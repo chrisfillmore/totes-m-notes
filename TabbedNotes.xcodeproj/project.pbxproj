@@ -18,10 +18,10 @@
 		183BA3201CB030370003B630 /* DTFNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183BA31E1CB030370003B630 /* DTFNote.swift */; };
 		183BA3231CB0306B0003B630 /* DTFTag+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183BA3211CB0306B0003B630 /* DTFTag+CoreDataProperties.swift */; };
 		183BA3241CB0306B0003B630 /* DTFTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183BA3221CB0306B0003B630 /* DTFTag.swift */; };
-		183BA3281CB031900003B630 /* NoteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183BA3271CB031900003B630 /* NoteManager.swift */; };
 		183BA32C1CB04A3E0003B630 /* NoteListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183BA32B1CB04A3E0003B630 /* NoteListViewController.swift */; };
 		183BA3301CB04D3D0003B630 /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183BA32F1CB04D3D0003B630 /* AlertHelper.swift */; };
 		183BA3321CB054300003B630 /* SaveItemDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183BA3311CB054300003B630 /* SaveItemDelegate.swift */; };
+		18D9D41B1CBDCDA2008EBB4C /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D9D41A1CBDCDA2008EBB4C /* CollectionViewCell.swift */; };
 		9A35A14A1CB8762E0063D9D4 /* NoteDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A35A1491CB8762E0063D9D4 /* NoteDetailViewController.swift */; };
 		9A35A14C1CB8798B0063D9D4 /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A35A14B1CB8798B0063D9D4 /* NoteTableViewCell.swift */; };
 		9A5FC96C1CB0A2AC0066C8FB /* TagListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5FC96B1CB0A2AC0066C8FB /* TagListViewController.swift */; };
@@ -42,10 +42,10 @@
 		183BA31E1CB030370003B630 /* DTFNote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTFNote.swift; sourceTree = "<group>"; };
 		183BA3211CB0306B0003B630 /* DTFTag+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DTFTag+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		183BA3221CB0306B0003B630 /* DTFTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTFTag.swift; sourceTree = "<group>"; };
-		183BA3271CB031900003B630 /* NoteManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteManager.swift; sourceTree = "<group>"; };
 		183BA32B1CB04A3E0003B630 /* NoteListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteListViewController.swift; sourceTree = "<group>"; };
 		183BA32F1CB04D3D0003B630 /* AlertHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
 		183BA3311CB054300003B630 /* SaveItemDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveItemDelegate.swift; sourceTree = "<group>"; };
+		18D9D41A1CBDCDA2008EBB4C /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		9A35A1491CB8762E0063D9D4 /* NoteDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteDetailViewController.swift; sourceTree = "<group>"; };
 		9A35A14B1CB8798B0063D9D4 /* NoteTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
 		9A5FC96B1CB0A2AC0066C8FB /* TagListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagListViewController.swift; sourceTree = "<group>"; };
@@ -91,13 +91,13 @@
 				183BA2E91CB01A0E0003B630 /* Assets.xcassets */,
 				183BA2EB1CB01A0E0003B630 /* LaunchScreen.storyboard */,
 				183BA2EE1CB01A0E0003B630 /* Info.plist */,
-				183BA3271CB031900003B630 /* NoteManager.swift */,
 				183BA32B1CB04A3E0003B630 /* NoteListViewController.swift */,
 				183BA32F1CB04D3D0003B630 /* AlertHelper.swift */,
 				183BA3311CB054300003B630 /* SaveItemDelegate.swift */,
 				9A5FC96B1CB0A2AC0066C8FB /* TagListViewController.swift */,
 				9A5FC96D1CB0AE230066C8FB /* ListViewController.swift */,
 				9A35A1491CB8762E0063D9D4 /* NoteDetailViewController.swift */,
+				18D9D41A1CBDCDA2008EBB4C /* CollectionViewCell.swift */,
 			);
 			path = TabbedNotes;
 			sourceTree = "<group>";
@@ -191,11 +191,11 @@
 				9A5FC96C1CB0A2AC0066C8FB /* TagListViewController.swift in Sources */,
 				183BA31F1CB030370003B630 /* DTFNote+CoreDataProperties.swift in Sources */,
 				183BA3301CB04D3D0003B630 /* AlertHelper.swift in Sources */,
-				183BA3281CB031900003B630 /* NoteManager.swift in Sources */,
 				9A5FC96E1CB0AE230066C8FB /* ListViewController.swift in Sources */,
 				183BA2E51CB01A0E0003B630 /* SecondViewController.swift in Sources */,
 				183BA3191CB01F000003B630 /* NotesModel.xcdatamodeld in Sources */,
 				183BA2E11CB01A0E0003B630 /* AppDelegate.swift in Sources */,
+				18D9D41B1CBDCDA2008EBB4C /* CollectionViewCell.swift in Sources */,
 				9A35A14C1CB8798B0063D9D4 /* NoteTableViewCell.swift in Sources */,
 				183BA2E31CB01A0E0003B630 /* FirstViewController.swift in Sources */,
 				183BA32C1CB04A3E0003B630 /* NoteListViewController.swift in Sources */,

@@ -13,10 +13,13 @@ class NoteDetailViewController: UIViewController {
     
     @IBOutlet weak var noteTitleField: UITextField!
     @IBOutlet weak var noteBodyField: UITextView!
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    let tagCellID = "TagCell"
     
     var note:DTFNote?
     var saveDelegate:SaveItemDelegate?
-    //var noteId:NSIndexPath?
+    var tags = [DTFTag]()
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -27,18 +30,23 @@ class NoteDetailViewController: UIViewController {
         noteBodyField.text = note!.body
     }
     
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return tags.count
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let tagCell = collectionView.dequeueReusableCellWithReuseIdentifier(tagCellID, forIndexPath: indexPath) as! CollectionViewCell
+        tagCell.tagCellBtn.setTitle(tags[indexPath.row].description,
+            forState: UIControlState.Normal)
+        tagCell.backgroundColor = UIColor.whiteColor()
+        return tagCell
+    }
+    
     @IBAction func cancel(sender: UIBarButtonItem) {
         dismissViewControllerAnimated(true, completion: nil)
     }
     
     @IBAction func save(sender: UIBarButtonItem) {
-        /*let fields = [
-            "title" : noteTitleField.text! as String,
-            "body" : noteBodyField.text as String
-        ]
-        saveDelegate!.onSave(fields)*/
-        //note!.setValue(noteTitleField.text!, forKey: "title")
-        //note!.setValue(noteBodyField.text!, forKey: "body")
         note!.title = noteTitleField.text! as String
         note!.body = noteBodyField.text as String
         saveDelegate!.onSave(nil)

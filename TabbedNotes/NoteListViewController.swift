@@ -18,9 +18,6 @@ class NoteListViewController: ListViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // cast to the right type
-        // this is a bit ghetto
-        //items = items as! [DTFNote]
     }
 
     override func onSave(fields:[String:String]?) {
@@ -29,6 +26,18 @@ class NoteListViewController: ListViewController {
     
     override func getAlertTitle() -> String {
         return "New Note"
+    }
+    
+    func getTags()->[DTFTag] {
+        let fetchRequest = NSFetchRequest(entityName: "Tag")
+        var results = [DTFTag]()
+        
+        do {
+            results  = try managedObjectContext.executeFetchRequest(fetchRequest) as! [DTFTag]
+        } catch let error as NSError {
+            print("Could not fetch \(error), \(error.userInfo)")
+        }
+        return results
     }
     
     override func getAlertFieldNames() -> [String : String] {
@@ -65,12 +74,10 @@ class NoteListViewController: ListViewController {
         
         if segue.identifier == noteDetailSegueId {
             let noteDetailCtrl = destCtrl as! NoteDetailViewController
-            //let selectedNote = items[index.row] as! DTFNote
             let selectedNote = fetchedResultsController.objectAtIndexPath(index) as! DTFNote
             noteDetailCtrl.note = selectedNote
             noteDetailCtrl.saveDelegate = self
-            //noteDetailCtrl.context = self
-            //noteDetailCtrl.noteId = index
+            noteDetailCtrl.tags = getTags()
         } else {
             // do nothing for now
         }
