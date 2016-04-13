@@ -43,6 +43,12 @@ class NoteDetailViewController: UIViewController {
             forState: UIControlState.Normal)
         tagCell.backgroundColor = UIColor.whiteColor()
         tagCell.layer.cornerRadius = 5
+        tagCell.tagCellBtn.titleEdgeInsets.left = 4
+        tagCell.tagCellBtn.titleEdgeInsets.right = 4
+        tagCell.tagCellBtn.titleEdgeInsets.top = 4
+        tagCell.tagCellBtn.titleEdgeInsets.bottom = 4
+        
+        
         return tagCell
     }
     

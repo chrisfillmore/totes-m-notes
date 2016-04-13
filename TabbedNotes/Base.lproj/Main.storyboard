@@ -13,14 +13,17 @@
                         <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="sectionIndexBackgroundColor" red="0.90231203179999997" green="0.98126341549999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="WQ7-Uy-Zhd">
+                            <tableViewCell opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="WQ7-Uy-Zhd">
                                 <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WQ7-Uy-Zhd" id="Vda-CH-6MN">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" red="0.90231203179999997" green="0.98126341549999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.90231203179999997" green="0.98126341549999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <segue destination="NLw-w3-wa0" kind="showDetail" identifier="NoteDetailSegue" id="LJa-sc-beg"/>
                                 </connections>
@@ -61,7 +64,7 @@
                                 <rect key="frame" x="20" y="452" width="560" height="128"/>
                                 <color key="backgroundColor" red="0.90231203179999997" green="0.98126341549999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nx3-PC-u72">
-                                    <size key="itemSize" width="71" height="50"/>
+                                    <size key="itemSize" width="71" height="28"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -71,12 +74,16 @@
                                         <rect key="frame" x="0.0" y="0.0" width="71" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="71" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="71" height="28"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cTD-I3-yLC" userLabel="Tag Cell Btn">
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="cTD-I3-yLC" userLabel="Tag Cell Btn">
                                                     <rect key="frame" x="0.0" y="0.0" width="71" height="50"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                     <state key="normal" title="Button"/>
+                                                    <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                                        <rect key="frame" x="0.0" y="0.0" width="71" height="28"/>
+                                                    </variation>
                                                     <connections>
                                                         <action selector="touchMe:" destination="EH7-A9-SK7" eventType="touchUpInside" id="pIK-cd-zUX"/>
                                                     </connections>
