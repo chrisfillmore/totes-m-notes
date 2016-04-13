@@ -10,7 +10,7 @@ import UIKit
 
 class CollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var tagCellBtn: UIButton!
+    @IBOutlet var tagCellBtn: UIButton!
     
     @IBAction func touchMe(sender: AnyObject) {
         // some shit in hurr

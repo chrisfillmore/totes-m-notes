@@ -36,6 +36,10 @@ class NoteDetailViewController: UIViewController {
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let tagCell = collectionView.dequeueReusableCellWithReuseIdentifier(tagCellID, forIndexPath: indexPath) as! CollectionViewCell
+        if tagCell.tagCellBtn == nil {
+            let temp = UIButton(type: .InfoDark)
+            tagCell.tagCellBtn = temp
+        }
         tagCell.tagCellBtn.setTitle(tags[indexPath.row].description,
             forState: UIControlState.Normal)
         tagCell.backgroundColor = UIColor.whiteColor()

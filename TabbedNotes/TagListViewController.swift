@@ -13,6 +13,7 @@ class TagListViewController: ListViewController {
     
     static let nameId = "name"
     let alertFieldNames = [nameId:"Name"]
+    let searchByTagSegue = "SearchByTag"
 
     override func onSave(fields:[String:String]?) {
         // should add a check in here to see if it's blank
@@ -35,6 +36,22 @@ class TagListViewController: ListViewController {
     
     override func getSortDescriptors()->[NSSortDescriptor] {
         return [NSSortDescriptor(key:TagListViewController.nameId, ascending: true)]
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        performSegueWithIdentifier(searchByTagSegue, sender: indexPath)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let noteCtrl = segue.destinationViewController
+        let index = sender as! NSIndexPath
+        
+        if segue.identifier == searchByTagSegue {
+            
+        } else {
+            // do nothing for now
+        }
+        
     }
     
 }

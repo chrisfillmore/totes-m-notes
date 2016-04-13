@@ -90,12 +90,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TabbedNotes/NoteListViewController.swift"
-            timestampString = "482200797.276398"
+            timestampString = "482201011.330513"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
-            landmarkName = "prepareForSegue(_:sender:)"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
+            landmarkName = "getSortDescriptors()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -199,12 +199,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TabbedNotes/ListViewController.swift"
-            timestampString = "482200797.276398"
+            timestampString = "482202269.335847"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "165"
-            endingLineNumber = "165"
-            landmarkName = "controller(_:didChangeObject:atIndexPath:forChangeType:newIndexPath:)"
+            startingLineNumber = "163"
+            endingLineNumber = "163"
+            landmarkName = "controller(_:didChangeSection:atIndex:forChangeType:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -220,8 +220,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "60"
             endingLineNumber = "60"
-            landmarkName = "numberOfSectionsInTableView(_:)"
-            landmarkType = "5">
+            landmarkName = "ListViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -236,7 +236,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "59"
             endingLineNumber = "59"
-            landmarkName = "numberOfSectionsInTableView(_:)"
+            landmarkName = "addButton(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -247,12 +247,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TabbedNotes/NoteListViewController.swift"
-            timestampString = "482200797.276398"
+            timestampString = "482201011.330513"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
-            landmarkName = "tableView(_:didSelectRowAtIndexPath:)"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "getExtraActions()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -263,12 +263,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TabbedNotes/NoteListViewController.swift"
-            timestampString = "482200797.276398"
+            timestampString = "482201011.330513"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
-            landmarkName = "prepareForSegue(_:sender:)"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "getEntityName()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -279,12 +279,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TabbedNotes/NoteListViewController.swift"
-            timestampString = "482200797.276398"
+            timestampString = "482201011.330513"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
-            landmarkName = "prepareForSegue(_:sender:)"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "NoteListViewController"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TabbedNotes/ListViewController.swift"
+            timestampString = "482202269.335847"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
+            landmarkName = "getEntity(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -295,28 +311,44 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TabbedNotes/ListViewController.swift"
-            timestampString = "482200797.276398"
+            timestampString = "482201011.330513"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "129"
-            endingLineNumber = "129"
-            landmarkName = "saveItem(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TabbedNotes/ListViewController.swift"
-            timestampString = "482200797.276398"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
             landmarkName = "tableView(_:numberOfRowsInSection:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TabbedNotes/NoteDetailViewController.swift"
+            timestampString = "482250968.83162"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "collectionView(_:cellForItemAtIndexPath:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TabbedNotes/NoteDetailViewController.swift"
+            timestampString = "482254019.400143"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "collectionView(_:cellForItemAtIndexPath:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
