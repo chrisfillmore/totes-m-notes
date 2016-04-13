@@ -74,7 +74,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TagCell" id="EH7-A9-SK7" customClass="CollectionViewCell" customModule="TabbedNotes" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="71" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="71" height="28"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="71" height="28"/>
