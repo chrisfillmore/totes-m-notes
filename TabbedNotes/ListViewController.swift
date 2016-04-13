@@ -13,10 +13,11 @@ class ListViewController: UITableViewController, SaveItemDelegate, NSFetchedResu
     
     let cellId = "Cell"
     let cacheName = "secretCache"
-    var tags = [DTFTag]()
+    
     
     var fetchedResultsController: NSFetchedResultsController!
     var managedObjectContext:NSManagedObjectContext!
+    var predicate:NSPredicate?
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -30,9 +31,16 @@ class ListViewController: UITableViewController, SaveItemDelegate, NSFetchedResu
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        fetchedResultsController = getFetchedResultsController()
+    }
+    
     func getFetchedResultsController()->NSFetchedResultsController {
         let request = NSFetchRequest(entityName: getEntityName())
         request.sortDescriptors = getSortDescriptors()
+        if predicate != nil {
+            request.predicate = predicate
+        }
         
         let context = getManagedObjectContext()
         let frc = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
@@ -65,7 +73,6 @@ class ListViewController: UITableViewController, SaveItemDelegate, NSFetchedResu
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let sections = fetchedResultsController.sections!
         let sectionInfo = sections[section]
-        print("Number of objects in section: " + String(sectionInfo.numberOfObjects))
         return sectionInfo.numberOfObjects
     }
     

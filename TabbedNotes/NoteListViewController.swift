@@ -18,6 +18,22 @@ class NoteListViewController: ListViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let tags = getTags()
+        
+        fetchedResultsController.fetchedObjects!.forEach({ (_note:AnyObject) in
+            let note = _note as! DTFNote
+            if fetchedResultsController.indexPathForObject(note)!.row % 2 == 0 {
+                
+                //note.addTagObject(tags.first!)
+                let relation = note.valueForKeyPath("tags") as! NSMutableSet
+                relation.addObject(tags.first!)
+            }
+            for tag in note.tags! {
+                print("in loop")
+                print(tag)
+            }
+        })
+        
     }
 
     override func onSave(fields:[String:String]?) {

@@ -53,6 +53,7 @@ class NoteDetailViewController: UIViewController {
     @IBAction func save(sender: UIBarButtonItem) {
         note!.title = noteTitleField.text! as String
         note!.body = noteBodyField.text as String
+        
         saveDelegate!.onSave(nil)
         
         dismissViewControllerAnimated(true, completion: nil)

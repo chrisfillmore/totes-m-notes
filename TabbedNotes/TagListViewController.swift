@@ -41,13 +41,44 @@ class TagListViewController: ListViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         performSegueWithIdentifier(searchByTagSegue, sender: indexPath)
     }
+    /*
+    func getNotesByTag(tag:DTFTag)->[DTFNote] {
+        let fetchRequest = NSFetchRequest(entityName: "Note")
+        
+        var results = []
+        
+        do {
+            results  = try managedObjectContext.executeFetchRequest(fetchRequest)
+        } catch let error as NSError {
+            print("Could not fetch \(error), \(error.userInfo)")
+        }
+        
+        print("here are all the results")
+        for result in results {
+            print(result)
+        }
+        
+        
+        let predicate = NSPredicate(format: "%@ in tags", tag.name!)
+        results = (results as NSArray).filteredArrayUsingPredicate(predicate)
+        
+        print("here are the results by tag")
+        for result in results {
+            print(result)
+        }
+        
+        return results as! [DTFNote]
+    }*/
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let noteCtrl = segue.destinationViewController
+        let noteCtrl = segue.destinationViewController as! NoteListViewController
+        
         let index = sender as! NSIndexPath
         
         if segue.identifier == searchByTagSegue {
-            
+            let tag = fetchedResultsController.objectAtIndexPath(index) as! DTFTag
+            noteCtrl.predicate = NSPredicate(format: "%@ in tags", tag.name!)
+            tabBarController!.selectedViewController = tabBarController!.viewControllers!.first
         } else {
             // do nothing for now
         }
