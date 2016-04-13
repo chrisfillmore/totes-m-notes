@@ -14,7 +14,7 @@ class TagListViewController: ListViewController {
     static let nameId = "name"
     let alertFieldNames = [nameId:"Name"]
 
-    override func onSave(fields:[String:String]) {
+    override func onSave(fields:[String:String]?) {
         // should add a check in here to see if it's blank
         saveItem(fields)
         self.tableView.reloadData()

@@ -9,6 +9,5 @@
 import UIKit
 
 protocol SaveItemDelegate {
-    func onSave(fields:[String:String])
-    //func onEdit(id:NSIndexPath, fields:[String:String])
+    func onSave(fields:[String:String]?)
 }
