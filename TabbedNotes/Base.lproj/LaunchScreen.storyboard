@@ -17,15 +17,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Totes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tre-f8-cC6" userLabel="Totes">
-                                <rect key="frame" x="88" y="83" width="122" height="21"/>
-                                <fontDescription key="fontDescription" name="SnellRoundhand" family="Snell Roundhand" pointSize="132"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="63" y="35" width="274" height="131"/>
-                                </variation>
-                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y0O-4U-zHy">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -40,6 +31,15 @@
                                     <rect key="frame" x="42" y="479" width="317" height="2"/>
                                 </variation>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A DTF PRODUCTION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ks5-tz-Zdb">
+                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" name="Cochin" family="Cochin" pointSize="12"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="234" y="456" width="130" height="21"/>
+                                </variation>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ALEXIS DICKS" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N98-DV-rEj">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" name="Cochin" family="Cochin" pointSize="17"/>
@@ -102,13 +102,13 @@
                                     <rect key="frame" x="94" y="164" width="213" height="21"/>
                                 </variation>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A DTF PRODUCTION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ks5-tz-Zdb">
-                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" name="Cochin" family="Cochin" pointSize="12"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Totes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tre-f8-cC6" userLabel="Totes">
+                                <rect key="frame" x="88" y="83" width="122" height="21"/>
+                                <fontDescription key="fontDescription" name="SnellRoundhand" family="Snell Roundhand" pointSize="132"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="234" y="456" width="130" height="21"/>
+                                    <rect key="frame" x="63" y="35" width="274" height="131"/>
                                 </variation>
                             </label>
                         </subviews>
@@ -117,6 +117,7 @@
                             <mask key="subviews">
                                 <exclude reference="Y0O-4U-zHy"/>
                                 <exclude reference="FsG-P4-wEM"/>
+                                <exclude reference="Ks5-tz-Zdb"/>
                                 <exclude reference="N98-DV-rEj"/>
                                 <exclude reference="wZR-la-Wbb"/>
                                 <exclude reference="rVf-Rf-Fpa"/>
@@ -124,13 +125,13 @@
                                 <exclude reference="ZH2-NM-YS8"/>
                                 <exclude reference="S2t-Fg-R6x"/>
                                 <exclude reference="p69-8s-KAP"/>
-                                <exclude reference="Ks5-tz-Zdb"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
                                 <include reference="Y0O-4U-zHy"/>
                                 <include reference="FsG-P4-wEM"/>
+                                <include reference="Ks5-tz-Zdb"/>
                                 <include reference="N98-DV-rEj"/>
                                 <include reference="wZR-la-Wbb"/>
                                 <include reference="rVf-Rf-Fpa"/>
@@ -138,7 +139,6 @@
                                 <include reference="ZH2-NM-YS8"/>
                                 <include reference="S2t-Fg-R6x"/>
                                 <include reference="p69-8s-KAP"/>
-                                <include reference="Ks5-tz-Zdb"/>
                             </mask>
                         </variation>
                     </view>
