@@ -28,6 +28,9 @@ class NoteDetailViewController: UIViewController {
     override func viewDidLoad() {
         noteTitleField.text = note!.title
         noteBodyField.text = note!.body
+        self.automaticallyAdjustsScrollViewInsets = false
+        
+        
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -39,6 +42,7 @@ class NoteDetailViewController: UIViewController {
         tagCell.tagCellBtn.setTitle(tags[indexPath.row].description,
             forState: UIControlState.Normal)
         tagCell.backgroundColor = UIColor.whiteColor()
+        tagCell.layer.cornerRadius = 5
         return tagCell
     }
     
