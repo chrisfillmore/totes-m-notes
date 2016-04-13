@@ -43,6 +43,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <segue destination="NLw-w3-wa0" kind="show" identifier="NoteBlankSegue" id="xp6-66-WHN"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZeO-rV-dZD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -177,7 +180,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y9M-Jz-gNE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3381" y="-230.25"/>
+            <point key="canvasLocation" x="3537" y="-428.25"/>
         </scene>
         <!--Notes-->
         <scene sceneID="Ubo-OP-ZS1">
@@ -283,6 +286,7 @@
                     <nil name="viewControllers"/>
                     <connections>
                         <segue destination="9LL-PP-qTG" kind="relationship" relationship="rootViewController" id="9F5-hI-HAd"/>
+                        <segue destination="9LL-PP-qTG" kind="showDetail" identifier="NoteBlankSegue" id="IzY-3W-5hj"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3LI-6t-Uwk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -294,4 +298,8 @@
         <image name="ic_label_48pt" width="48" height="48"/>
         <image name="ic_list_48pt" width="48" height="48"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="xp6-66-WHN"/>
+        <segue reference="IzY-3W-5hj"/>
+    </inferredMetricsTieBreakers>
 </document>

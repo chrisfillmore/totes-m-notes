@@ -15,6 +15,9 @@ class NoteListViewController: ListViewController {
     static let bodyId = "body"
     let alertFieldNames = [titleId:"Title", bodyId:"Body"]
     let noteDetailSegueId = "NoteDetailSegue"
+    let noteBlankSegueId = "NoteBlankSegue"
+    let blankNote = DTFNote()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,7 +52,7 @@ class NoteListViewController: ListViewController {
         return [
             "Open Details" : { (action: UIAlertAction) in
                 
-                self.performSegueWithIdentifier(self.noteDetailSegueId, sender: nil)
+                self.performSegueWithIdentifier(self.noteBlankSegueId, sender: nil)
             }
         ]
     }
@@ -70,19 +73,26 @@ class NoteListViewController: ListViewController {
         let navCtrl = segue.destinationViewController
         let destCtrl = navCtrl.childViewControllers.first
         
-        let index = sender as! NSIndexPath
-        
         if segue.identifier == noteDetailSegueId {
+            let index = sender as! NSIndexPath
             let noteDetailCtrl = destCtrl as! NoteDetailViewController
             let selectedNote = fetchedResultsController.objectAtIndexPath(index) as! DTFNote
             noteDetailCtrl.note = selectedNote
             noteDetailCtrl.saveDelegate = self
             noteDetailCtrl.tags = getTags()
+        } else if segue.identifier == noteBlankSegueId {
+            //
+            
+            let noteDetailCtrl = destCtrl as! NoteDetailViewController
+            let selectedNote = NSEntityDescription.insertNewObjectForEntityForName("Note", inManagedObjectContext: managedObjectContext) as! DTFNote
+           // selectedNote.title = ""
+            //selectedNote.body = ""
+            noteDetailCtrl.note = selectedNote
+            noteDetailCtrl.saveDelegate = self
+            noteDetailCtrl.tags = getTags()
+            
         } else {
             // do nothing for now
         }
-
     }
-    
-    
 }
