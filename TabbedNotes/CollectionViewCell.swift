@@ -13,10 +13,7 @@ class CollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var tagCellBtn: UIButton!
     
     @IBAction func touchMe(sender: AnyObject) {
-        // some shit in hurr
-        // which will remove the tag from the note
-        
-        
     }
+
     
 }
